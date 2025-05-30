@@ -1,0 +1,144 @@
+* {
+    font-family: "Konkhmer Sleokchher", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --nero: #000000;
+    --rojo: #B00003;
+    --fondos: #191919;
+    --bordes: #635E5E;
+}
+
+h1 {
+    color: var(--fondos);
+    font-size: 60px;
+    -webkit-text-stroke: var(--rojo);
+    -webkit-text-stroke-width: 2px;
+    font-family: "Nosifer", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    font-size: 50px;
+    color: var(--rojo);
+}
+
+h3 {
+    font-size: 35px;
+    color: var(--rojo);
+}
+
+h4 {
+    font-size: 25px;
+    color: var(--rojo);
+    text-align: center;
+}
+
+p {
+    color: white;
+}
+
+body {
+    background-color: var(--nero);
+}
+section{
+    background-color: var(--fondos);
+    border-radius: 20px;
+    margin: 20px 0;
+}
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header input {
+    border-radius: 47px;
+    width: 400px;
+    height: 80px;
+    border: none;
+    font-size: 30px;
+}
+
+/* NAV */
+
+nav {
+    margin: auto;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    background-color: var(--fondos);
+    border-radius: 50px;
+    width: 980px;
+    height: 70px;
+}
+
+
+nav hr {
+    color: var(--bordes);
+    margin: 0;
+}
+
+nav ul {
+    margin: 0;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    width: 100%;
+
+}
+
+nav ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1
+}
+
+nav ul a {
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--rojo);
+    text-align: center;
+}
+
+nav ul li:nth-child(2) {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+
+}
+
+
+/* METALICA LOGO */
+
+.Metallica {
+    display: flex;
+    margin: auto;
+    height: 400px;
+}
+
+/* ABOUT */
+#about img {
+    display: flex;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
+}
+
+/* INTEGRANTS */
+#integrants img{
+    width: 320px;
+    border-radius: 22px;
+}
+
+#integrants>div{
+    display: flex;
+    justify-content: center;
+
+}
