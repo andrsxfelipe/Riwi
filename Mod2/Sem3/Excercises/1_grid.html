@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html,body{
+            height: 99%;
+            margin: 0;
+        }
+        body{
+            margin: 1%;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+            height: 100%;
+            gap:1%
+        
+        }
+        .items{
+            height: 100%;
+            width: auto;
+            border-radius: 2vh;
+        }
+        .i{
+            grid-column: 1/8;
+            background-color: rgba(255, 68, 0, 0.8);
+        }
+        .ii{
+            grid-column: 8/13;
+            background-color: rgba(255, 68, 0, 0.8);
+        }
+        .iii{
+            height: 100%;
+            grid-column: 1/6;
+            grid-row: 2/4;
+            background-color: rgba(255, 166, 0, 0.8);
+
+        }
+        .iv{
+            grid-column: 6/13;
+            background-color: rgba(137, 43, 226, 0.8);
+        }
+        .v{
+            grid-column: 6/13;
+            background-color: rgba(137, 43, 226, 0.8);
+        }
+        .vi{
+            grid-column: 1/4;
+            background-color: rgba(0, 0, 255, 0.8);
+        }
+        .vii{
+            grid-column: 4/9;
+            background-color: rgba(0, 0, 255, 0.8);
+        }
+        .viii{
+            grid-column: 9/13;
+            background-color: rgba(0, 0, 255, 0.8);
+        }
+        
+    </style>
+
+    <div class="container">
+        <div class="items i"></div>
+        <div class="items ii"></div>
+        <div class="items iii"></div>
+        <div class="items iv"></div>
+        <div class="items v"></div>
+        <div class="items vi"></div>
+        <div class="items vii"></div>
+        <div class="items viii"></div>
+    </div>
+</body>
+</html>
