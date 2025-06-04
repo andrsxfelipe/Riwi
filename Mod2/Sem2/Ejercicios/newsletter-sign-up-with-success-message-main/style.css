@@ -55,12 +55,14 @@ ul {
     padding-left: 0px;
     gap: 1rem;
 }
-ul li{
+
+ul li {
     display: flex;
     align-items: center;
 
 }
-ul li img{
+
+ul li img {
     align-items: center;
     margin-right: 5px;
 }
@@ -68,7 +70,7 @@ ul li img{
 .container {
     background-color: var(--white);
     display: flex;
-    width: fit-content; 
+    width: 100%;
     border-radius: 2cap;
     padding: 20px;
 
@@ -78,7 +80,7 @@ ul li img{
     display: flex;
     flex-direction: column;
     align-self: center;
-    width: 375px;
+    width: 100%;
     margin: 0 70px 0 0px;
     padding-left: 3rem;
 }
@@ -90,16 +92,45 @@ ul li img{
     width: 100%;
 }
 
-.formulario form{
+.formulario form {
     margin-top: 25px;
 }
-.formulario form>input:nth-child(3){
+
+.form_btn {
     margin-top: 20px;
     background-color: var(--blue800);
     color: var(--white);
     font-family: "Roboto-Bold";
 
 }
-/* .formulario form input:nth-child(2){
-    padding-left: 30px;
-} */
+
+.form_btn:hover {
+    background-color: var(--primary);
+    box-shadow: 4px 4px 23px 3px rgba(255, 98, 87, 0.75);
+    cursor: pointer;
+}
+.img_mobile{
+        display: none;
+    }
+@media (max-width: 940px) {
+    .container{
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 0;
+        padding:0;
+        width: 100%;
+    }
+    .formulario{
+        margin: 0;
+        padding: 0;
+        width: 80vw;
+        padding-bottom: 2vh;
+    }
+    .img_desk{
+        display: none;
+    }
+    .img_mobile{
+        display: flex;
+        
+    }
+}
