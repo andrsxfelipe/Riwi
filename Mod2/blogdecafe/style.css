@@ -1,0 +1,135 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /* -webkit-text-size-adjust: 100%; */
+}
+
+*,*:before,*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+/* -- FONTS --  */
+h1 {
+    font-family: var(--fuenteHeading);
+    font-size: 4.8rem;
+    line-height: 1.2;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--fuenteHeading);
+    font-size: 4rem;
+    margin: 0;
+    text-align: center;
+    line-height: 1.1;
+}
+
+h3 {
+    font-family: var(--fuenteHeading);
+    font-size: 3.2rem;
+    margin: 3.2rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+h4 {
+    font-family: var(--fuenteHeading);
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+a {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.8rem;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    padding-right: 2rem;
+}
+
+p {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    margin: 1.6rem 0;
+    line-height: 2;
+}
+
+/* -- HEADER -- */
+header {
+    background-image: url(./images/banner.webp);
+    height: 60rem;
+    padding-top: 3rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
+    display: grid;
+    grid-template-rows: 1fr 150px 1fr;
+}
+header p{
+    line-height: 0.3;
+}
+ 
+.portada {
+    display: flex;
+    justify-content: space-between;
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90%;
+    align-items: top;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+/* -- NOSOTROS -- */
+#nosotres{
+    max-width: 120rem;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 0 8rem;
+    padding-bottom: 1rem;
+}
+.nosotres_descrip{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+}
+.nosotres_descrip img{
+    max-width: 100%;
+}
+
+/* -- FOOTER -- */
+footer{
+    background-color: black;
+    color: white;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+}
+.pie {
+    display: flex;
+    justify-content: space-between;
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 90%;
+    align-items: center;
+}
+.pie h1{
+    line-height: 1.2;
+}
