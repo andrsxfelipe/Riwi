@@ -1,0 +1,81 @@
+1. Fundamentos de la Web
+1.1 Cómo funciona internet (HTTP/HTTPS, clientes y servidores).
+1.2 Instalación de VS, Git y extensiones básicas
+1.3 Mini-proyecto: Landing page estática
+
+2.CSS moderno
+2.1 Selectores, cascada y herencia
+2.2 Caja, márgenes, padding, display.
+2.3 Flexbox y CSS Grid para maquetar.
+2.4 Variables CSS, pseudo-clases :has() y animaciones sencillas.
+2.5 Introducción a Bootstrap 5.3 y Tailwind v4 (utility first).
+2.6 Proyecto: Landing pero adaptable a móvil con un pequeño componente de Bootstrap
+
+3.JavaScript básico
+3.1 Sintaxis, tipos, operadores, funciones, scope, ES6 (let/const, arrow functions, template strings).
+3.2 DOM: selección, eventos, manipulación de nodos.
+3.3 Fetch API (+ promesas) para consumir datos ficticios de JSON Placeholder.
+3.4 Proyecto: todo-list en el navegador (guardar en localStorage)
+
+4. JS avanzado y tooling
+4.1 async/await, manejo de errores
+4.2 Programación orientada a objetos en JS.
+4.3 Introducción a Node.js, npm y Vite.
+4.4 Módulos ES (import/export)
+4.5 Testing básico con Jest.
+4.6 Proyecto: Galería de imágenes que consume una API pública.
+
+5. SPAs y Rect 19 - nivel 1
+5.1 Filosofía de los Single-Page Applications
+5.2 React 19: JSX, componentes, props, estado, hooks (useState, useEffect)
+5.3 Crear una SPA con vite + React Router.
+5.4 Proyecto: Blog simple con rutas protegidas (sólo front-end).
+
+6. React 19 - nivel 2
+6.1 COntext API, reducers ligeros.
+6.2 NOvedades 2025: React Compiler, Server Components, Actios API, useOptimistic.
+6.3 Formularios, validación y manejo de errores.
+6.4 Vistas listas para producción con lazy loading y Suspense.
+6.5 Breve repaso de de alternativas (Vue 4, Svelte Kit, Solid).
+
+7. TypeScript & UI profesional
+7.1 Tipos, interfaces, genéricos y "strict mode".
+7.2 Migrar un proyecto React a TypeScript
+7.3 Component libraries: Shadcn/UI, MUI, Ant Design
+7.4 Storybook y diseño de sistema de componentes.
+7.5 Proyecto: dashboard analítico con gráficos (Recharts)
+
+8. Back-end Node + Express
+8.1 Fundamentos de HTPP profundo, REST vs GraphQL.
+8.2 Rutas, controladores, middlewares.
+8.3 Autenticación JWT y hashing de contraseñas.
+8.4 Seguridad básica (CORS, rate limit, headers).
+8.5 Proyecto: API REST de tareas con documentación Swagger.
+
+9. Bases de datos
+9.1 Modelo relacional: PostgreSQL (DDL, DML, JOINs, índices).
+9.2 NoSQL: MongoDB y cuándo elegirlo.
+9.3 ORM/ODM: Prisma v5 o Sequelize.
+9.4 Diseño de esquemas y migraciones.
+9.5 Proyecto: Cconectar la API a PostgreSQL y exponer endpoints CRUD.
+
+10. Full-stack moderno
+10.1 Next.js 15 (React Server Components, Server Actions, rutas app).
+10.2 REnderizado SSR, SSG e ISR.
+10.3 API Routes y subida de archivos.
+10.4 Variables de entorno y secretos.
+10.5 Proyecto: e-commerce básico full stack con carrito persistente.
+
+11. Calidad y accesibilidad
+11.1 Pruebas unitarias, de integración y E2E (Playwright)
+11.2 LInting (ESLInt) y formateo (Prettier).
+11.3 Accesibilidad con axe-core y lighthouse.
+11.4 Automatizar con GitHub Actions.
+11.5 Entregable: pipeline CI que corre tests y despliega en preview
+
+12. DevOps & despliegue
+12.1 Dockerizar front y back
+12.2 Contenedores vs servidores tradicionales.
+12.3 Deploy en Vercel (front) y Railway/AWS  (ECS o RDS)
+12.4 Monitorización (Grafana, Sentry) y logging.
+12.5 Proyecto final: publica tu app full stack, escribe README y retrsopectiva

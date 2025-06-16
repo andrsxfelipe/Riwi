@@ -1,0 +1,28 @@
+body{
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    height: 100vh;
+    grid-gap: 10px; padding: 10px;
+    margin: 0;
+}
+header{
+    background-color: greenyellow;
+}
+main{
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    background-color: blueviolet;
+    gap: 10px; */
+    background-color: blueviolet;
+}
+footer{
+    background-color: yellowgreen;
+}
+
+.box{
+    background-color: beige;
+}
+.formulario{
+    display: grid;
+    row-gap: 5vh;
+}

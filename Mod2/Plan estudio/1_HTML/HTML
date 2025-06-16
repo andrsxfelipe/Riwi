@@ -1,0 +1,80 @@
+1. ESTRUCTURA BÁSICA
+<!DOCTYPE> Define el tipo de documento | 
+<html> Raíz del documento | lang
+<head> Metadatos del documento
+<title> Título de la página
+<meta> Metadatos como codificación o viewport | charset, name, content
+<link> Vincula archivos externos (CSS, íconos) | rel, href, type
+<script> Inserta código JavaScript | src, type, defer, async
+<style> CSS dentro del HTML
+
+2. CONTENIDO ESTRUCTURAL
+<header> Encabezado de una sección o página
+<nav> Menú de navegación
+<main> Contenido principal
+<section> Sección de contenido
+<article> Contenido independiente (blog, noticia)
+<aside> Contenido complementario
+<footer> Pie de página o sección
+<div> Contenedor genérico | id, class
+
+3. TEXTO Y CONTENIDO
+<h1> - <h6> Títulos jerárquicos | id, class
+<p> Párrafo
+<span> Contenedor en línea | id, class
+<strong> Texto importante
+<em> Énfasis (cursiva)
+<br> Salto de línea
+<hr> Línea horizontal
+<blockquote> Cita textual | Cita
+<code> Fragmento de código
+<pre> Texto preformateado
+
+4. LISTAS
+<ul> Lista desordenada
+<ol> Lista ordenada | type, start, reversed
+<li> Elemento de lista
+<dl> Lista de definiciones
+<dt> Término a definir
+<dd> Definición del término
+
+5. IMÁGENES Y MULTIMEDIA
+<img> Imagen | src, alt, width, height, loading
+<audio> Audio embebido | controls, src, autoplay, loop
+<video> Video embebido | controls, src, width, heightm, poster, autoplay, loop.
+<source> Fuente multimedia alternativa | src, type
+<track> Subtítulos en video | src, kind, label, srclang
+<figure> Contenedor para imagen + leyenda
+<figcaption> Leyenda de una imagen
+
+6. ENLACES
+<a> Hipervínculo | href, target, rel, download, title
+
+7. TABLAS
+<table> Tabla | border
+<tr> Fila
+<th> Celda de encabezdo | colspan, rowspan
+<td> Celda normal | colspan, rowspan
+<thead>, <tbody>, <tfoot> | Agrupar secciones
+<caption> Título de tabla
+
+8. FORMULARIOS E INPUTS
+<form> Formulario | action, method, target, autocomplete.
+<input> Campo de entrada | type, name, value, placeholder, required, disabled, readonly
+<textarea> Área de texto multilínea | rows, cols, placeholder
+<select> select | value, selected
+<label> Etiqueta de campo | for
+<button> Botón | type, disabled
+<fieldset> Agrupa campos relacionados 
+<legend> Título del grupo
+<datalist> Lista de sugerencias
+<output> Resultado de cálculos
+
+9. SEMÁNTICA AVANZADAS Y OTRAS
+<canvas> Gráficos vía JS | width, height
+<svg> Gráficos vectoriales | width, height, viewBox
+<details> Contenido desplegable | open
+<summary> Título del <details>
+<template> Plantilla invisible
+<slot> Punto de inserción en componentes
+<iframse> Marco embebido | src, width, height, sandbox, allowfullscreen

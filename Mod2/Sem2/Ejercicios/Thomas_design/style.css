@@ -1,0 +1,181 @@
+* {
+    font-family: "Konkhmer Sleokchher", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    color: white;
+}
+:root {
+    --nero: #000000;
+    --rojo: #B00003;
+    --fondos: #191919;
+    --bordes: #635E5E;
+    --gris: #656363;
+}
+hr{
+    color: var(--bordes);
+}
+/* -- TAMANO FUENTES -- */
+h1{
+    font-size: 50px
+}
+h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+h3,p{
+    font-size: 26px;
+}
+h4,a,input{
+    font-size: 20px;
+}
+/* -- BODY -- */
+body {
+    background-color: var(--nero);
+}
+/* -- MARGENES -- */
+header, section{
+    margin-inline: 4vw;
+    margin-block: 2vh;
+}
+/* -- HEADER -- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1{
+    color: var(--fondos);
+    -webkit-text-stroke: var(--rojo);
+    -webkit-text-stroke-width: 2px;
+    font-family: "Nosifer", sans-serif;
+}
+header input{
+    color: var(--gris);
+    border-radius: 3rem;
+    width: 400px;
+    height: 80px;
+    border: none;
+}
+/* -- NAV -- */
+nav {
+    margin: 4vh auto;
+    display: flex;
+    background-color: var(--fondos);
+    border-radius: 3rem;
+    width: 980px;
+    height: 70px;
+}
+nav ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    width: 100%;
+
+}
+nav ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--rojo);
+    font-weight: bold;
+}
+
+nav ul li:nth-child(2) {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.img_metallica {
+    display: flex;
+    margin: auto;
+    height: 100%;
+    width: 25em;
+}
+/* -- SECCIONES -- */
+section{
+    background-color: var(--fondos);
+    border-radius: 20px;
+}
+section > *{
+    padding: 1.5vh 2.5vw;
+    border-bottom: 1px solid var(--bordes);
+}
+section > *:nth-last-child(1){
+    border:none;
+}
+section > h2{
+    color: var(--rojo);
+}
+/* - About - */
+#about img {
+    display: flex;
+    margin: 2em auto;
+    width: 40em;
+    height: 100%;
+}
+/* - Integrants - */
+#integrants img{
+    width: 12em;
+    height: 100%;
+    border-radius: 22px;
+}
+#integrants>div{
+    display: flex;
+    gap: 2em;
+}
+/* - Albums - */
+#albums img{
+    width: 20em;
+    border-radius: 20px;
+    margin-block: 2.5vh;
+}
+#albums>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* -- BEFORE FOOTER -- */
+.before_footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin-block: 10vh;
+}
+.before_footer h2{
+    color: white;
+    font-family: "Alfa Slab One", serif;
+    font-weight: bold;
+    font-style: normal;
+}
+.before_footer img{
+    width: 20em;
+}
+/* -- FOOTER -- */
+footer{
+    background-color: var(--gris);
+    margin: 0;
+    padding-block: 2.5vh;
+}
+footer > h2{
+    color: black;
+    margin: 3vh 0;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer>div{
+    display: flex;
+    gap: 1.5em
+}
+footer img{
+    width: 5em;
+}
