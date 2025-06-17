@@ -38,4 +38,20 @@ function enviar() {
         alert(`Hello ${nombre}, your are on the legal age. Be prepared for big oportunities in the programming world!`);
     }
 }
-
+function espositivo(numero) {
+    numero = parseFloat(numero)
+    if (numero > 0) {
+        alert("El número es positivo")
+    }
+    else if (numero < 0) {
+        alert("El número es negativo")
+    } else {
+        alert("Ingrese un digito válido")
+    }
+}
+// let num = prompt("Ingrese un número")
+// do {
+//     espositivo(num)
+//     num = prompt("Ingrese otro número")
+// } while (num != "")
+// console.log("Hola")
