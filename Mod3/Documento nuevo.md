@@ -100,6 +100,7 @@ function [nombre]([param[, param[, ...param]]]) {
 }
 
 **Funciones flecha**
+
 Una expresión de función flecha es una alternativa compacta a una expresión de función tradicional, pero es limitada y no se puede utilizar en todas las situaciones.
 
 const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
@@ -108,4 +109,11 @@ console.log(materials.map((material) => material.length));
 // Expected output: Array [8, 6, 7, 9]
 
 
-#
+#DOM 
+document.getElementbyId("id") *Consigue elemento, se puede combinar con:*
+.textContent *Modifica el contenido ej: .textcontent = "Hola" tambien se puede usar .textContent += "Hola"+"\n" para adicionar*
+
+document.createElement('p') *Para crear un elemento p nuevo*
+p.innerHTML *para agregar o modificar el contenido*
+
+p.className = "classname"

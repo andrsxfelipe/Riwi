@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-container {
+    min-width: 20%;
+    min-height: 250px;
+    height: 60vh;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: lightblue;
+}
+#form{
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "area area area area"
+        "uno dos tres mas"
+        "cuatro cinco seis menos"
+        "siete ocho nueve por"
+        "cero division enter enter";
+    gap: 10px;
+}
+.num0 {grid-area: cero;}
+.num1 {grid-area: uno;}
+.num2 {grid-area: dos;}
+.num3 {grid-area: tres;}
+.num4 {grid-area: cuatro;}
+.num5 {grid-area: cinco;}
+.num6 {grid-area: seis;}
+.num7 {grid-area: siete;}
+.num8 {grid-area: ocho;}
+.num9 {grid-area: nueve;}
+.menos {grid-area: menos;}
+.mas {grid-area: mas;}
+.por {grid-area: por;}
+.divi {grid-area: division;}
+.resul {grid-area: enter;}
+#operation {grid-area: area;}
+
+input{
+    font-size: 20px;
+}
