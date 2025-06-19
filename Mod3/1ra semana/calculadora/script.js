@@ -7,7 +7,6 @@ document.querySelectorAll(".num").forEach(button =>{
         event.preventDefault();
         const value = button.getAttribute("data-value");
         if(value == "+" || value == "*" || value == "/" || value == "-"){
-
             operaciones.push(valorAct)
             operaciones.push(value)
             valorAct =""

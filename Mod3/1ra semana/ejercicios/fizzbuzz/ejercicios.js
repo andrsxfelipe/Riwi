@@ -10,7 +10,7 @@ function fizzbuzz (){
         } else {
             insercion = (i)
         }
-        document.getElementById("FizzBuzz").textContent += insercion + "\n" 
+        document.getElementById("FizzBuzz").textContent += insercion + "\n"
     }
 }
 fizzbuzz()
