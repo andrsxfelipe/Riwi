@@ -5,12 +5,19 @@
 
 ## Tipos de datos
 **string:** Representa texto, encerrado entre comillas dobles o simples (o usando backticks). 
+
 **number:** Representa números, tanto enteros como de punto flotante. 
+
 **boolean:** Representa valores lógicos: true o false. 
-**undefined:** Representa una variable que no tiene valor asignado. 
-**null:** Representa una ausencia de valor, a diferencia de undefined. 
-**symbol:** Representa un valor único e inmutable, usado como claves de objeto. 
-**bigint:** Representa números enteros de gran tamaño que superan el rango de number. 
+
+**undefined:** Representa una variable que no tiene valor asignado.
+
+**null:** Representa una ausencia de valor, a diferencia de undefined.
+
+**symbol:** Representa un valor único e inmutable, usado como claves de objeto.
+
+**bigint:** Representa números enteros de gran tamaño que superan el rango de number.
+
 **NaN (Not a Number):** Se utiliza para representar un valor numérico que no es un número válido, como el resultado de operaciones matemáticas inválidas.
 
 ## Condicionales
@@ -245,7 +252,7 @@ No usar:
 | `"0"`          | `0`         | `0`       | `0`                 | `0`                 |
 | `""` (vacío)   | `0`         | `0`       | `0`                 | ❌ Error            |
 
-# truthy & falsy
+## truthy & falsy
 
 `if (valor)` JavaScript convierte el valor en un booleano implícito.
 Los 7 valores *falsy* en JS que dan `false` en un if son:
@@ -257,3 +264,315 @@ Los 7 valores *falsy* en JS que dan `false` en un if son:
 5. `undefined`
 6. `NaN`
 7. `document.all `
+
+## Scope 
+El scope determina dónde puedes acceder a variables y funciones en tu código.
+
+**Global scope**
+
+Variables declaradas fuera de cualquier función o bloque están disponibles en todo el código.
+```
+let nombre = "Pipo";
+
+function saludar() {
+  console.log(nombre); // ✅ Puede acceder a 'nombre' porque está en el scope global
+}
+saludar();
+```
+
+**Function scope**
+
+Variables declaradas dentro de una función solo existen ahí.
+```
+function ejemplo() {
+  let mensaje = "Hola";
+  console.log(mensaje); // ✅
+}
+console.log(mensaje); // ❌ Error: mensaje is not defined
+```
+**Block scope**
+
+Desde ES6, let y const tienen bloque de alcance, es decir, variables solo existen dentro de {} donde se declaran.
+
+```
+{
+  let secreto = "123";
+  const clave = "abc";
+}
+// secreto y clave no existen aquí fuera ❌
+
+```
+en cambio `var` no tiene block scope, solo function scope.
+```
+{
+  var x = 5;
+}
+console.log(x); // ✅ 5 (porque var ignora el bloque)
+```
+
+## Hoisting
+
+JavaScript mueve las declaraciones al principio del scope antes de ejecutar el código.
+
+Pero **solo las declaraciones**, no las asignaciones.
+
+**Ej. con `var`**
+```
+console.log(a); // undefined (no error, porque se elevó la declaración)
+var a = 5;
+```
+JS lo interpreta como:
+```
+var a;
+console.log(a); // undefined
+a = 5;
+```
+
+**Ej. con `let` y `const`**
+```
+console.log(b); // ❌ Error: Cannot access 'b' before initialization
+let b = 10;
+```
+- Esto sucede porque let y const también se elevan, pero entran en una zona llamada “Temporal Dead Zone”: una etapa entre la elevación y su declaración donde no se pueden usar.
+
+**Hoisting en funciones**
+```
+saluda(); // ✅ Funciona
+
+function saluda() {
+  console.log("Hola!");
+}
+```
+
+Expresiones de función:
+
+```
+saluda(); // ❌ TypeError: saluda is not a function
+
+var saluda = function() {
+  console.log("Hola!");
+};
+```
+
+## Objetos y arrays
+
+### Objetos
+
+**Sintaxis:**
+```
+const persona = {
+  nombre: "Pipo",
+  edad: 30,
+  esGroomer: true
+};
+```
+
+**Acceso a propiedades:**
+```
+console.log(persona.nombre);     // "Pipo"
+console.log(persona["edad"]);    // 30
+```
+
+**Modificar propiedades:**
+
+```
+persona.edad = 31;               // Modificar
+persona.ciudad = "Bogotá";       // Agregar
+```
+
+**Eliminar una propiedad:**
+
+`delete persona.esGroomer;`
+
+**Acceder a las keys:**
+`object.keys()` - Devuelve un array con todas las claves (en forma de strings).
+
+
+### Arrays
+
+**Sintaxis**
+`const frutas = ["manzana", "pera", "banana"];`
+
+**Acceder a elementos**
+`console.log(frutas[0]); // "manzana"`
+
+**Métodos**
+`push()` - Agrega al final
+`pop()` - Quita el último
+`unshift()` - Agrega al inicio
+`shift()` - Quita el primero
+`splice(i,n)` - Quita `n` elementos desde posición `i`
+`slice(i,f)` - Crea copia desde `i` hasta `f` sin incluir `f`
+`includes()` - Verifica si un elemento existe
+`indexOf()` - Devuelve índice del valor (o -1)
+
+### CallBacks
+Un callback es simplemente una función que se pasa como argumento a otra función, y se ejecuta más adelante (cuando "la llamen de vuelta").
+
+```
+function saludar(nombre) {
+  console.log("Hola " + nombre);
+}
+function procesarUsuario(callback) {
+  const nombre = "Pipo";
+  callback(nombre);  // 👈 aquí se llama al callback
+}
+procesarUsuario(saludar);  // salida: "Hola Pipo"
+// Observe que se llamó la función dentro de la función pero sin pasarle parametros.
+```
+
+**forEach(callback)**
+
+Ejecuta una función una vez por cada elemento.
+```
+const numeros = [1, 2, 3];
+
+numeros.forEach(num => {
+  console.log(num);  // 1, 2, 3
+});
+```
+
+**map(callback)**
+
+Crea un nuevo array con los resultados de aplicar una función a cada elemento.
+```
+const dobles = numeros.map(num => num * 2);
+console.log(dobles); // [2, 4, 6]
+```
+
+**filter(callback)**
+
+Crea un nuevo array solo con los elementos que cumplan una condición.
+
+```
+const pares = numeros.filter(num => num % 2 === 0);
+console.log(pares); // [2]
+```
+
+**find(callback)**
+
+Devuelve el primer elemento que cumple una condición.
+
+```
+const mayorA1 = numeros.find(num => num > 1);
+console.log(mayorA1); // 2
+```
+
+**reduce(callback, valorInicial)**
+
+Reduce el array a un solo valor.
+
+```
+const suma = numeros.reduce((acumulador, actual) => acumulador + actual, 0);
+console.log(suma); // 6
+```
+
+**some(callback) / every(callback)**
+some: al menos uno cumple, every: todos cumplen.
+
+```
+console.log(numeros.some(num => num > 2));  // true
+console.log(numeros.every(num => num > 0)); // true
+```
+
+**callbacks asincronicos**
+
+```
+setTimeout(() => {
+  console.log("Esperaste 2 segundos");
+}, 2000);
+```
+
+### Spread operator (...)
+
+**En arrays:**
+
+```
+const a = [1, 2];
+const b = [3, 4];
+const combinado = [...a, ...b];
+console.log(combinado); // [1, 2, 3, 4]
+```
+También sirve para copiar arrays:
+`const copia = [...a]; // copia exacta de 'a'`
+
+**En objetos:**
+
+```
+const persona = { nombre: "Pipo", edad: 30 };
+const infoExtra = { ciudad: "Bogotá" };
+
+const personaCompleta = { ...persona, ...infoExtra };
+console.log(personaCompleta);
+// { nombre: 'Pipo', edad: 30, ciudad: 'Bogotá' }
+```
+
+### Rest operator (...)
+
+El operador rest **recolecta** los elementos restantes en funciones o estructuras.
+
+```
+function sumar(...numeros) {
+  return numeros.reduce((a, b) => a + b, 0);
+}
+
+console.log(sumar(1, 2, 3)); // 6
+```
+Aquí, numeros es un array: `[1, 2, 3]`
+
+### Destructuring
+
+```
+const [primero, ...resto] = [10, 20, 30, 40];
+console.log(primero); // 10
+console.log(resto);   // [20, 30, 40]
+```
+
+En objetos:
+
+```
+const { nombre, ...datos } = { nombre: "Pipo", edad: 30, ciudad: "Bogotá" };
+console.log(nombre); // "Pipo"
+console.log(datos);  // { edad: 30, ciudad: "Bogotá" }
+```
+
+## DOM y Eventos
+
+DOM -> Document Object Model
+
+**`document.getElementById("id")`**
+
+Selecciona un solo elemento por su atributo `id`
+
+**`document.querySelector("selector")`**
+
+Usa selectores CSS para seleccionar el primer elemento que coincida. (clases).
+
+```
+document.querySelector("#id");        // por ID
+document.querySelector("div");        // primera etiqueta <div>
+document.querySelector("input[type='text']"); // input de texto
+```
+**`document.querySelectorAll("selector")`**
+
+Devuelve todos los elementos que coincidan con el selector (NodeList iterable)
+```
+const parrafos = document.querySelectorAll("p");
+parrafos.forEach(p => console.log(p.textContent));
+```
+
+**`document.getElementsByClassName("clase")`**
+
+Selecciona todos los elementos con una clase. Devuelve un HTMLCollection (similar a un array, pero no exactamente igual)
+
+**`document.getElementsByTagName("clase")`**
+
+Selecciona todos los elementos por su nombre de etiqueta
+
+| Método                   | Devuelve               | Selector usado |
+| ------------------------ | ---------------------- | -------------- |
+| `getElementById`         | 1 solo elemento        | ID             |
+| `getElementsByClassName` | Lista (HTMLCollection) | Clase          |
+| `getElementsByTagName`   | Lista (HTMLCollection) | Etiqueta       |
+| `querySelector`          | 1 solo elemento        | CSS selector   |
+| `querySelectorAll`       | Lista (NodeList)       | CSS selector   |
