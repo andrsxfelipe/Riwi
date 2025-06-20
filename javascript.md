@@ -538,6 +538,8 @@ console.log(datos);  // { edad: 30, ciudad: "Bogotá" }
 
 ## DOM y Eventos
 
+### Seleccionar elementos del DOM
+
 DOM -> Document Object Model
 
 **`document.getElementById("id")`**
@@ -576,3 +578,106 @@ Selecciona todos los elementos por su nombre de etiqueta
 | `getElementsByTagName`   | Lista (HTMLCollection) | Etiqueta       |
 | `querySelector`          | 1 solo elemento        | CSS selector   |
 | `querySelectorAll`       | Lista (NodeList)       | CSS selector   |
+
+### Crear, eliminar y modificar elementos
+
+**Crear elementos**
+
+`document.createElement("etiqueta")` - Lo crea (Se puede agregar texto, clases, atributos, etc.)
+
+`.appendChild()` ó `.append()` - Para insertar en el DOM
+
+ej:
+
+```
+// Crear un nuevo párrafo
+const nuevoParrafo = document.createElement("p");
+
+// Agregar texto
+nuevoParrafo.textContent = "Hola, soy nuevo";
+
+// Agregar clase
+nuevoParrafo.classList.add("mi-clase");
+
+// Agregar al body o a otro contenedor
+document.body.appendChild(nuevoParrafo);
+```
+con `.innerHTML`:
+```
+const contenedor = document.getElementById("caja");
+contenedor.innerHTML += "<p>Otro párrafo</p>";
+```
+
+
+**Eliminar elementos**
+
+`.remove()`:
+
+```
+const elemento = document.querySelector(".eliminarme");
+elemento.remove();
+```
+
+`.removeChild()` si tienes acceso al padre:
+```
+const padre = document.getElementById("contenedor");
+const hijo = document.getElementById("hijo");
+padre.removeChild(hijo);
+```
+
+**Modificar elementos**
+
+***Cambiar texto***
+`document.querySelector("h1").textContent = "Nuevo título";`:
+Cambia el texto, también se puede añadir con:
+`document.querySelector("h1").textContent += "texto añadido";`
+
+***Cambiar el HTML interno***
+`document.querySelector(#mensaje).innerHTML = "<strong>Hola</strong>;"`
+
+***Cambiar atributos***
+```
+const imagen = document.querySelector("img");
+imagen.setAttribute("src", "nueva-imagen.jpg");
+imagen.setAttribute("alt", "Texto alternativo");
+```
+
+***Cambiar clases***
+```
+const div = document.querySelector("#caja");
+div.classList.add("nueva-clase");
+div.classList.remove("vieja-clase");
+div.classList.toggle("modo-oscuro");
+```
+
+***Cambiar estilos***
+```
+const boton = document.querySelector("button");
+boton.style.backgroundColor = "blue";
+boton.style.color = "white";
+```
+
+### Eventos
+
+Es una acción del usuario o del navegador que podemos "escuchar" y responder con código.
+
+Sintaxis:
+
+`elemento.addEventListener("tipoDeEvento", funcionCallback);`
+
+ej:
+```
+document.querySelector("button").addEventListener("click", () => {
+  console.log("¡Botón clickeado!");
+});
+```
+
+| Evento      | ¿Cuándo se dispara?                                |
+| ----------- | -------------------------------------------------- |
+| `click`     | Al hacer clic en un botón, div, etc.               |
+| `submit`    | Al enviar un formulario                            |
+| `keydown`   | Al presionar una tecla                             |
+| `input`     | Al escribir en un input (cambia mientras escribes) |
+| `change`    | Al cambiar el valor de un select o checkbox        |
+| `mouseover` | Cuando el mouse entra en un elemento               |
+| `mouseout`  | Cuando el mouse sale del elemento                  |
