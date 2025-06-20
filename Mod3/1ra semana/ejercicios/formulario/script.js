@@ -10,10 +10,9 @@ document.getElementById("formNotas").addEventListener("submit", function (e) {
     }
     const suma = notas.reduce((i, j) => i + j, 0)
     promedio = suma / notas.length
-    console.log(promedio)
+    document.getElementById("texto").textContent += promedio;
 });
 
 // function promedio (event){
 //     event.preventDefault(event);
-
 // }
