@@ -387,6 +387,11 @@ persona.ciudad = "Bogotá";       // Agregar
 **Acceder a las keys:**
 `object.keys()` - Devuelve un array con todas las claves (en forma de strings).
 
+**Acceder a los values:**
+`object.values()` - Todos los values
+
+**Acceder a las llaves y valores simultaneamente**
+`object.entries()` - Es como .items() en python 
 
 ### Arrays
 
@@ -397,14 +402,43 @@ persona.ciudad = "Bogotá";       // Agregar
 `console.log(frutas[0]); // "manzana"`
 
 **Métodos**
-`push()` - Agrega al final
-`pop()` - Quita el último
 `unshift()` - Agrega al inicio
+`push()` - Agrega al final
 `shift()` - Quita el primero
+`pop()` - Quita el último
 `splice(i,n)` - Quita `n` elementos desde posición `i`
 `slice(i,f)` - Crea copia desde `i` hasta `f` sin incluir `f`
 `includes()` - Verifica si un elemento existe
 `indexOf()` - Devuelve índice del valor (o -1)
+
+### Sets
+Un Set en JavaScript es una colección de valores únicos, es decir, no permite elementos repetidos. Se usa para almacenar cualquier tipo de dato y es útil cuando necesitas asegurarte de que no haya duplicados.
+
+Características principales:
+No permite valores duplicados.
+El orden de los elementos es el de inserción.
+Puedes agregar, eliminar y verificar si un valor existe de forma eficiente.
+Ejemplo básico de uso:
+```
+// Crear un set y agregar valores
+const numeros = new Set();
+numeros.add(1);
+numeros.add(2);
+numeros.add(2); // No se agrega porque ya existe
+
+console.log(numeros); // Set { 1, 2 }
+console.log(numeros.has(1)); // true
+console.log(numeros.has(3)); // false
+
+numeros.delete(1); // Elimina el 1
+console.log(numeros); // Set { 2 }
+```
+Ejemplo: Eliminar duplicados de un array
+```
+const frutas = ["manzana", "pera", "manzana", "uva"];
+const frutasUnicas = [...new Set(frutas)];
+console.log(frutasUnicas); // ["manzana", "pera", "uva"]
+```
 
 ### CallBacks
 Un callback es simplemente una función que se pasa como argumento a otra función, y se ejecuta más adelante (cuando "la llamen de vuelta").
