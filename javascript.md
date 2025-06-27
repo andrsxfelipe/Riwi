@@ -385,13 +385,13 @@ persona.ciudad = "Bogotá";       // Agregar
 `delete persona.esGroomer;`
 
 **Acceder a las keys:**
-`object.keys()` - Devuelve un array con todas las claves (en forma de strings).
+`Object.keys(objeto)` - Devuelve un array con todas las claves (en forma de strings).
 
 **Acceder a los values:**
-`object.values()` - Todos los values
+`Object.values(objeto)` - Todos los values
 
 **Acceder a las llaves y valores simultaneamente**
-`object.entries()` - Es como .items() en python 
+`Object.entries(objeto)` - Es como .items() en python 
 
 ### Arrays
 
@@ -402,14 +402,23 @@ persona.ciudad = "Bogotá";       // Agregar
 `console.log(frutas[0]); // "manzana"`
 
 **Métodos**
-`unshift()` - Agrega al inicio
-`push()` - Agrega al final
-`shift()` - Quita el primero
-`pop()` - Quita el último
-`splice(i,n)` - Quita `n` elementos desde posición `i`
-`slice(i,f)` - Crea copia desde `i` hasta `f` sin incluir `f`
-`includes()` - Verifica si un elemento existe
-`indexOf()` - Devuelve índice del valor (o -1)
+`unshift()` - Agrega al inicio.
+
+`push()` - Agrega al final.
+
+`shift()` - Quita el primero.
+
+`pop()` - Quita el último.
+
+`splice(i,n)` - Quita `n` elementos desde posición `i`.
+
+`slice(i,f)` - Crea copia desde `i` hasta `f` sin incluir `f`.
+
+`includes()` - Verifica si un elemento existe.
+
+`indexOf()` - Devuelve índice del valor (o -1).
+
+`array.lenght` - Devuelve el tamaño de array
 
 ### Sets
 Un Set en JavaScript es una colección de valores únicos, es decir, no permite elementos repetidos. Se usa para almacenar cualquier tipo de dato y es útil cuando necesitas asegurarte de que no haya duplicados.
@@ -439,6 +448,19 @@ const frutas = ["manzana", "pera", "manzana", "uva"];
 const frutasUnicas = [...new Set(frutas)];
 console.log(frutasUnicas); // ["manzana", "pera", "uva"]
 ```
+
+**Métodos**
+
+`add(valor)` - Agrega un valor al set
+`delete(valor)` - Elimina un valor al set
+`has(valor)` - Retorna true si el valor existe en el set
+`clear()` - Elimina todos los valores del set
+`size()` - Cantidad de elementos en el set (propiedad) 
+`forEach` - Ejecuta una función para cada valor del set (callback)
+`[..set]` ó `Array.from(set)` - Convierte el set en un arreglo
+`values()` ó `keys()` - Devuelve pares [valor, valor] (porque no claves en un set)
+`entries()`
+
 
 ### CallBacks
 Un callback es simplemente una función que se pasa como argumento a otra función, y se ejecuta más adelante (cuando "la llamen de vuelta").
