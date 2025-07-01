@@ -1,0 +1,35 @@
+// const ciudad = "Copacabana"
+// const apiKey = "f8d109d130db0f2439500bfaafa09bfb"
+
+// fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`)
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(`Temperatura en ${data.name}: ${data.main.temp}°C`);
+//         console.log(`Clima: ${data.weather[0].description}`);
+//     })
+//     .catch(error => console.error("Error al obtener el clima: ", error));
+
+const apiKey = "f8d109d130db0f2439500bfaafa09bfb";
+
+document.getElementById('weatherForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const ciudad = document.getElementById('cityInput').value.trim();
+    const resultDiv = document.getElementById('weatherResult');
+    resultDiv.textContent = "Consultando...";
+    
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`)
+        .then(response => {
+            if (!response.ok) throw new Error("Ciudad no encontrada");
+            return response.json();
+        })
+        .then(data => {
+            resultDiv.innerHTML = `
+                <strong>Ciudad:</strong> ${data.name}<br>
+                <strong>Temperatura:</strong> ${data.main.temp}°C<br>
+                <strong>Clima:</strong> ${data.weather[0].description}
+            `;
+        })
+        .catch(error => {
+            resultDiv.textContent = "Error: " + error.message;
+        });
+});
