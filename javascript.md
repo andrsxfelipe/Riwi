@@ -354,6 +354,55 @@ var saluda = function() {
 };
 ```
 
+## Closures
+
+Un **closure** es una función que recuerda el contexto en el que fue creada. Puede acceder a variables definidas fuera de ella incluso después de que el contexto haya terminado.
+
+###  Ejemplos:
+
+ej.1:
+```js
+function crearContador() {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+const contar = crearContador();
+contar(); // 1
+contar(); // 2
+```
+ej.2:
+```js
+function crearSaludo(saludo) {
+  return function (nombre) {
+    console.log(`${saludo}, ${nombre}`);
+  };
+}
+
+const saludarHola = crearSaludo("Hola");
+saludarHola("Juan"); // Hola, Juan
+```
+ej.3:
+```js
+function cuentaBancaria() {
+  let saldo = 1000;
+
+  return {
+    consultar: () => saldo,
+    depositar: (monto) => saldo += monto,
+    retirar: (monto) => saldo -= monto
+  };
+}
+
+const cuenta = cuentaBancaria();
+console.log(cuenta.consultar()); // 1000
+cuenta.depositar(500);
+console.log(cuenta.consultar()); // 1500
+```
+
 ## Objetos y arrays
 
 ### Objetos
@@ -606,7 +655,7 @@ Selecciona un solo elemento por su atributo `id`
 
 Usa selectores CSS para seleccionar el primer elemento que coincida. (clases).
 
-```
+```js
 document.querySelector("#id");        // por ID
 document.querySelector("div");        // primera etiqueta <div>
 document.querySelector("input[type='text']"); // input de texto
@@ -625,17 +674,7 @@ Selecciona todos los elementos con una clase. Devuelve un HTMLCollection (simila
 
 **`document.getElementsByTagName("clase")`**
 
-Selecciona todos los elementos por su nombre de etiqueta
-
-| Método                   | Devuelve               | Selector usado |
-| ------------------------ | ---------------------- | -------------- |
-| `getElementById`         | 1 solo elemento        | ID             |
-| `getElementsByClassName` | Lista (HTMLCollection) | Clase          |
-| `getElementsByTagName`   | Lista (HTMLCollection) | Etiqueta       |
-| `querySelector`          | 1 solo elemento        | CSS selector   |
-| `querySelectorAll`       | Lista (NodeList)       | CSS selector   |
-
-### Crear, eliminar y modificar elementos
+Selecciona todos los elementos por su nombre de etiqueta```
 
 **Crear elementos**
 
@@ -645,7 +684,7 @@ Selecciona todos los elementos por su nombre de etiqueta
 
 ej:
 
-```
+```js
 // Crear un nuevo párrafo
 const nuevoParrafo = document.createElement("p");
 
@@ -659,7 +698,7 @@ nuevoParrafo.classList.add("mi-clase");
 document.body.appendChild(nuevoParrafo);
 ```
 con `.innerHTML`:
-```
+```js
 const contenedor = document.getElementById("caja");
 contenedor.innerHTML += "<p>Otro párrafo</p>";
 ```
@@ -669,13 +708,13 @@ contenedor.innerHTML += "<p>Otro párrafo</p>";
 
 `.remove()`:
 
-```
+```js
 const elemento = document.querySelector(".eliminarme");
 elemento.remove();
 ```
 
 `.removeChild()` si tienes acceso al padre:
-```
+```js
 const padre = document.getElementById("contenedor");
 const hijo = document.getElementById("hijo");
 padre.removeChild(hijo);
@@ -692,14 +731,14 @@ Cambia el texto, también se puede añadir con:
 `document.querySelector(#mensaje).innerHTML = "<strong>Hola</strong>;"`
 
 ***Cambiar atributos***
-```
+```js
 const imagen = document.querySelector("img");
 imagen.setAttribute("src", "nueva-imagen.jpg");
 imagen.setAttribute("alt", "Texto alternativo");
 ```
 
 ***Cambiar clases***
-```
+```js
 const div = document.querySelector("#caja");
 div.classList.add("nueva-clase");
 div.classList.remove("vieja-clase");
@@ -707,7 +746,7 @@ div.classList.toggle("modo-oscuro");
 ```
 
 ***Cambiar estilos***
-```
+```js
 const boton = document.querySelector("button");
 boton.style.backgroundColor = "blue";
 boton.style.color = "white";
@@ -722,7 +761,7 @@ Sintaxis:
 `elemento.addEventListener("tipoDeEvento", funcionCallback);`
 
 ej:
-```
+```js
 document.querySelector("button").addEventListener("click", () => {
   console.log("¡Botón clickeado!");
 });
@@ -737,3 +776,238 @@ document.querySelector("button").addEventListener("click", () => {
 | `change`    | Al cambiar el valor de un select o checkbox        |
 | `mouseover` | Cuando el mouse entra en un elemento               |
 | `mouseout`  | Cuando el mouse sale del elemento                  |
+
+### event.target
+
+Cuando ocurre un evento en el navegador (como un clic) se genera un evento llamado `event` (evento). Este objeto tiene una propedad muy importante.
+
+- Es el elemento exacto que generó el evento, sin importar quién lo estaba escuchando.
+- Es útil para saber dónde ocurrió exactamente el clic, especialmente cuando estás usando event delegation.
+
+Ej:
+```js
+<div id="container">
+  <button>Botón 1</button>
+  <button>Botón 2</button>
+</div>
+<script>
+  document.getElementById("container").addEventListener("click", function(event){
+    console.log("Se hizo clic en: ",event.target);
+  });
+```
+Si se hace clic en "Botón 1", el `event.target` será ese botón, aunque el `addEventListener` esté en el div
+
+### event bubbling
+
+Cuándo ocurre un evento, como un clic en un botón dentro de un `div`, ese evento "burbujea" desde el elemento más específico hacia los elementos padres.
+
+**Orden del bubbling:**
+
+1. El elemento ocurre en el elemento más específico (`event.target`)
+2. Luego sube (bubbling) a través del árbol del DOM hasta `document`
+
+Ej:
+```js
+<div id="padre">
+  <button id="hijo">Click</button>
+</div>
+
+<script>
+  document.getElementById("hijo").addEventListener("click", function(){
+    console.log("Clic en el hijo");
+  })
+  
+  document.getElementById("padre").addEventListener("click", function (){
+    console.log("Clic en el padre");
+  })
+</script>
+```
+Usar `event.stropPropagation()` si no quieres que el evento siga subiendo.
+
+### Event Delegation (Delegación de eventos)
+
+Es una técnica en la que asignas el listener a un elemento padre, y usas `event.target` para ver qué hijo activó el evento.
+
+- Mejora el rendimiento
+- Maneja eventos de elementos dinámicos (que aún no están en el DOM)
+- Evita tener muchos `addEventListener`
+
+Ej:
+
+```js
+<ul id="lista">
+  <li>Elemento 1</li>
+  <li>Elemento 2</li>
+  <li>Elemento 3</li>
+</ul>
+<script>
+  document.getElementById("lista").addEventListener("click", function(event) {
+    if (event.target.tagName ==="LI") {
+      console.log("Clic en: ", event.target.textContent);
+    }
+  })
+</script>
+```
+
+Aunque agregues más <li> después con JavaScript, el evento seguirá funcionando sin tener que añadir más listeners.
+
+|Concepto         |Explicación corta                                  |
+|-----------------|---------------------------------------------------|
+|`event.target  ` |El elemento exacto que inició el evento.           |
+|Event bubbling   |El evento se propaga desde el hijo hacia los padres|
+|Event delegation |Usar un padre para escuchar eventos de sus hijos   |
+
+
+### `event.currentTarget` vs `event.target`
+- `event.target`: Dónde ocurrió el evento.
+- `event.currentTarget`: El elemento que tiene el listener
+
+Ej:
+
+```js
+element.addEventListener("click", funcion(event){
+  console.log("target", event.target);
+  console.log("currentTarget:", event.currentTarget);
+});
+```
+
+## ES6 (EcmaScript 2015)
+
+### `let` y `const`
+
+**let** 
+- Define variables que pueden cambiar.
+- Tiene ámbito de bloque
+
+```js
+let edad = 25;
+edad = 30;
+```
+
+**const**
+- Define constantes. No pueden ser reasignadas.
+- También tiene ámbito de bloque.
+
+```js
+const nombre = "Carlos";
+nombre = "Luis"; // X Error
+```
+*Pero si es un objeto o array, puedes modificar sus propiedades*.
+
+### Arrow Functions
+
+```js
+function saludar(nombre){
+  return 'Hola, $(nombre)';
+}
+```
+
+**Arrow**
+
+```js
+const saludar = (nombre) => "Hola, ${nombre}";
+```
+*No tiene su propio `this`. Hereda del contexto del padre. Muy útil en funciones de callback o métodos de clase.*
+
+### Clases
+Las clases son azúcar sintáctico sobre la herencia por prototipos.
+
+```js
+class Animal {
+  constructor(nombre){
+    this.nombre = nombre;
+  }
+
+  hablar (){
+    console.log('${this.nombre} hace un sonido')
+  }
+}
+
+class Perro extends Animal {
+  hablar(){
+    console.log('${this.nombre} ladra')
+  }
+}
+
+const perro = new Perro("Fido");
+perro.hablar(); // Fido ladra.
+```
+
+### Módulos (import y export)
+Permiten dividir el código en archivos.
+
+**archivo:** `app.js`
+```js
+import { saludar } from './saludo.js';
+console.log(saludar("María"));
+```
+*Solo funciona en entornos modernos (navegadores con `type="module"` ó herramientas como Webpack/Vite)
+
+## Promesas
+Una promesa representa un valor que estará disponible en el futuro
+
+**Sintaxis**
+
+```js
+const promesa = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Éxito");
+  },1000);
+});
+
+promesa.then((resultado) => {
+  console.log(resultado); // "Éxito"
+}).catch((error) => {
+  console.error(error);
+});
+```
+
+## async/await
+
+Es una forma más limpia y legible de usar promesas.
+
+Ej:
+```js
+function esperar (ms){
+  return new Promise(resolve => setTimeout(resolver, ms));
+}
+
+async function ejecutar (){
+  console.log("Esperando...");
+  await esperar(2000);
+  console.log("Listo");
+}
+
+ejecutar();
+```
+*await solo se puede usar dentro de funciones*
+
+## fetch y consumo de APIs
+
+`fetch()` sirve para hacer peticiones HTTP (como a APIS REST)-
+
+Ejemplo usando Promesas:
+
+```js
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(response => response.json())
+  .then(data => {
+    console.log("Datos: ", data);
+  })
+  .catch(error => console.error("Error: ", error))
+```
+
+Ejemplo usando async/await:
+```js
+async function obtenerPOst() {
+  try{
+    const respuesta = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const data = await respuesta.json();
+    console.log("Datos: ", data);
+  }catch (error){
+    console.error("Error al obtener datos:", error);
+  }
+}
+
+obtenerPost();
+```
