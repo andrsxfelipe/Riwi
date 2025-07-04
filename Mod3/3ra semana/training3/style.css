@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+#lista {
+    background: #fff;
+    margin: 30px auto;
+    padding: 24px 32px;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+#formularios {
+    background: #fff;
+    margin: 30px auto;
+    padding: 24px 32px;
+    border-radius: 8px;
+    width: 60%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    height: fit-content;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+ul.listaPerros {
+    list-style: none;
+    padding: 0;
+}
+
+ul.listaPerros li {
+    background: #e3eafc;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select, button {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #bfc9d1;
+    font-size: 1em;
+}
+
+button {
+    background: #4f8cff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #3461b2;
+}

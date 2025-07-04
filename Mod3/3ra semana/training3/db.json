@@ -1,0 +1,60 @@
+{
+  "dogs": [
+    {
+      "id": "1",
+      "name": "Buddy",
+      "breed": "Goldendoodle",
+      "size": "Large",
+      "aggressive": false
+    },
+    {
+      "name": "Bella",
+      "breed": "Labrador Retriever",
+      "size": "XLarge",
+      "aggressive": "false",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Charlie",
+      "breed": "Poodle",
+      "size": "Medium",
+      "aggressive": false
+    },
+    {
+      "id": "4",
+      "name": "Lucy",
+      "breed": "French Bulldog",
+      "size": "Small",
+      "aggressive": false
+    },
+    {
+      "id": "5",
+      "name": "Max",
+      "breed": "German Shepherd",
+      "size": "XLarge",
+      "aggressive": true
+    },
+    {
+      "id": "6",
+      "name": "Daisy",
+      "breed": "Beagle",
+      "size": "Medium",
+      "aggressive": false
+    },
+    {
+      "id": "7",
+      "name": "Rocky",
+      "breed": "Rottweiler",
+      "size": "XLarge",
+      "aggressive": true
+    },
+    {
+      "id": "3bb9",
+      "name": "Pablo",
+      "breed": "Mini Schnauzer",
+      "size": "Large",
+      "aggressive": "false"
+    }
+  ]
+}

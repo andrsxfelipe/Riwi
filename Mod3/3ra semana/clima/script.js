@@ -23,6 +23,9 @@ document.getElementById('weatherForm').addEventListener('submit', function(e) {
             return response.json();
         })
         .then(data => {
+            const iconCode = data.weather[0].icon; 
+            const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`
+            document.getElementById('weather-icon').src = iconUrl;
             resultDiv.innerHTML = `
                 <strong>Ciudad:</strong> ${data.name}<br>
                 <strong>Temperatura:</strong> ${data.main.temp}°C<br>

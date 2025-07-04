@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="lista">
+        <h1>Sistema de información de Perros</h1>
+        <button onclick="getMethod()">Mostrar perras</button>
+        <!-- List to show the pets -->
+        <ul class="listaPerros">
+            <li>
+                <h2>Ponta (Id: 0)</h2>
+                <p>Husky</p>
+                <p>Size: Large, No aggressive</p>
+            </li>
+        </ul>
+    </section>
+    <section id="formularios">
+        <!-- Form to ADD pets -->
+        <h2>Add Pet</h2>
+        <form id="formAdd" action="">
+            <input type="text" placeholder="Pet Name">
+            <input type="text" placeholder="Breed">
+            <label for="aggressive">Aggressive</label>
+            <select id="aggressive" type="select">
+                <option value="">-- Select an option --</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <label for="size">Size</label>
+            <select id="size" type="select">
+                <option value="">-- Select an option --</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="XLarge">XLarge</option>
+            </select>
+            <button id="btnAdd" type="submit">Add Pet</button>
+        </form>
+        <!-- Form to EDIT a pet -->
+        <h2>Edit Pet</h2>
+        <form id="formEdit" action="">
+            <input type="text" placeholder="Pet ID">
+            <input type="text" placeholder="Pet Name">
+            <input type="text" placeholder="Breed">
+            <label for="aggressive">Aggressive</label>
+            <select id="aggressive" type="select">
+                <option value="">-- Select an option --</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <label for="size">Size</label>
+            <select id="size" type="select">
+                <option value="">-- Select an option --</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="XLarge">XLarge</option>
+            </select>
+            <button id="btnEdit" type="submit">Modify Pet</button>
+        </form>
+        <!-- Form to delete a pet -->
+        <h2>Delete Pet</h2>
+        <form id="formDelete" action="">
+            <input type="text" placeholder="Pet ID">
+            <button id="btnDelete" type="submit">Delete Pet</button>
+        </form>
+    </section>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
