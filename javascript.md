@@ -871,6 +871,63 @@ element.addEventListener("click", funcion(event){
 });
 ```
 
+### Persistencia de datos (Local Storage y Session Storage)
+
+| API del navegador | ¿Dónde guarda los datos?     | ¿Cuánto duran?                 | Capacidad aproximada |
+| ----------------- | ---------------------------- | ------------------------------ | -------------------- |
+| `localStorage`    | Disco del navegador          | Hasta que se borre manualmente | \~5–10 MB            |
+| `sessionStorage`  | Disco del navegador          | Hasta que se cierre la pestaña | \~5 MB               |
+| `cookies`         | Disco, se envían al servidor | Depende del `expires`          | \~4 KB               |
+
+Local Storage y Session Storage son objetos JavaScript que permiten guardar pares clave-valor (key: value) en el navegador.
+
+**Operaciones básicas**
+***Guardar***
+```js
+localStorage.setItem("clave","valor");
+sessionStorage.setItem("clave","valor")
+```
+Todo se guarda como string. Si quieres guardar arreglos o objetos se debe usar JSON:
+```js
+JSON.stringify(objeto);
+```
+
+***Leer***
+```js
+let nombre = localStorage.getItem("key");
+let color = sessionStorage.getItem("key");
+```
+
+***Borrar**
+```js
+localStorage.removeItem("key");
+sessionStorage.removeItem("key");
+```
+
+***Borrar todo***
+```js
+localStorage.clear();
+sessionStorage.clear();
+```
+
+**Errores comunes**
+
+| Error                                                   | Solución                                  |
+| ------------------------------------------------------- | ----------------------------------------- |
+| Guardar objetos sin `JSON.stringify()`                  | Siempre convierte a JSON antes de guardar |
+| Leer claves inexistentes devuelve `null`                | Usa condicionales antes de usar el dato   |
+| Cambios en otra pestaña no se reflejan (sessionStorage) | Usa `localStorage` si necesitas compartir |
+
+**Evento `storage` (Avanzado)**
+Si usas múltiples pestañas, puedes escuchar cambios en localStorage con:
+
+```js
+window.addEventListener("storage", function(e) {
+  console.log("Cambio en localStorage:", e.key, e.oldValue, e.newValue);
+});
+```
+
+
 ## ES6 (EcmaScript 2015)
 
 ### `let` y `const`
