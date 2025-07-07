@@ -1,5 +1,5 @@
 // const ciudad = "Copacabana"
-// const apiKey = "f8d109d130db0f2439500bfaafa09bfb"
+// const apiKey = ""
 
 // fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`)
 //     .then(response => response.json())
@@ -9,7 +9,7 @@
 //     })
 //     .catch(error => console.error("Error al obtener el clima: ", error));
 
-const apiKey = "f8d109d130db0f2439500bfaafa09bfb";
+const contra = "Aqui va la key";
 
 document.getElementById('weatherForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -17,7 +17,7 @@ document.getElementById('weatherForm').addEventListener('submit', function(e) {
     const resultDiv = document.getElementById('weatherResult');
     resultDiv.textContent = "Consultando...";
     
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${contra}&units=metric&lang=es`)
         .then(response => {
             if (!response.ok) throw new Error("Ciudad no encontrada");
             return response.json();
