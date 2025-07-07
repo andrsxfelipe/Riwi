@@ -873,6 +873,17 @@ element.addEventListener("click", funcion(event){
 
 ### Persistencia de datos (Local Storage y Session Storage)
 
+**Resumen**
+| Acción          | Código                      |
+| --------------- | --------------------------- |
+| Guardar         | `setItem("clave", "valor")` |
+| Leer            | `getItem("clave")`          |
+| Borrar          | `removeItem("clave")`       |
+| Borrar todo     | `clear()`                   |
+| Guardar objetos | `JSON.stringify(obj)`       |
+| Leer objetos    | `JSON.parse(string)`        |
+
+
 | API del navegador | ¿Dónde guarda los datos?     | ¿Cuánto duran?                 | Capacidad aproximada |
 | ----------------- | ---------------------------- | ------------------------------ | -------------------- |
 | `localStorage`    | Disco del navegador          | Hasta que se borre manualmente | \~5–10 MB            |
@@ -898,7 +909,7 @@ let nombre = localStorage.getItem("key");
 let color = sessionStorage.getItem("key");
 ```
 
-***Borrar**
+***Borrar***
 ```js
 localStorage.removeItem("key");
 sessionStorage.removeItem("key");
@@ -926,7 +937,6 @@ window.addEventListener("storage", function(e) {
   console.log("Cambio en localStorage:", e.key, e.oldValue, e.newValue);
 });
 ```
-
 
 ## ES6 (EcmaScript 2015)
 
