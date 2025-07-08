@@ -10,6 +10,7 @@
 
 <body>
     <div class="container">
+        <div class="divWarning"></div>
         <form action="" class="userForm">
             <label for="">Name:</label>
             <input type="text" id="inputName">
@@ -20,18 +21,10 @@
             <button onclick="saveInfo()">Save</button>
             <button onclick="clearInfo()">Clear</button>
         </div>
-        <div class="interactions">Hola</div>
+        <div class="elementInteractions"></div>
     </div>
     <div class="table">
-        <table>
-            <tr>
-                <th>User</th>
-                <th>Age</th>
-            </tr>
-            <tr>
-                <td>Andres</td>
-                <td>23</td>
-            </tr>
+        <table id="elementTable">
         </table>
     </div>
     <script src="./script.js"></script>

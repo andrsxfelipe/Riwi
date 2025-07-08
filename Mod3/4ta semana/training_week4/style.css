@@ -9,6 +9,8 @@
     --azul: #4f8cff;
     --lightAzul: #e0edff;
     --gris: rgb(170, 170, 170);
+    --darkGris: rgb(83, 83, 83);
+    --rojo: rgb(252, 93, 93);
 }
 
 body{
@@ -17,6 +19,7 @@ body{
 }
 
 .container{
+    min-width: 320px;
     background: #e0edff;
     justify-self: center;
     padding: 30px;
@@ -90,4 +93,14 @@ tr,td {
 
 .interactions{
     margin-top: 3vh;
+}
+
+.elementInteractions{
+    margin-top: 4vh;
+    color: var(--darkGris);
+}
+
+.divWarning{
+    color: var(--rojo);
+    margin-bottom: 4vh;
 }
