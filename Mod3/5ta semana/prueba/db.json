@@ -1,0 +1,90 @@
+{
+  "events": [
+    {
+      "title": "Evento 1",
+      "description": "Descripción del evento editado 1",
+      "date": "2023-10-02",
+      "capacity": "100",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "title": "Evento 2",
+      "description": "Descripción del evento 2",
+      "date": "2023-10-02",
+      "capacity": 48
+    },
+    {
+      "id": "3",
+      "title": "Evento 3",
+      "description": "Descripción del evento 3",
+      "date": "2023-10-03",
+      "capacity": 0
+    },
+    {
+      "title": "Party In the Usa edited",
+      "description": "Hollywood Concert edited",
+      "date": "2025-07-14",
+      "capacity": 1,
+      "id": "b49d"
+    },
+    {
+      "id": "4008",
+      "title": "Karol G concert",
+      "description": "Manana sera bonito",
+      "date": "2025-07-15",
+      "capacity": "100"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Andres",
+      "email": "feli-p@outlook.com",
+      "password": "123456",
+      "role": "admin",
+      "events": []
+    },
+    {
+      "id": "2",
+      "name": "Usuario 2",
+      "email": "user2@example.com",
+      "password": "password2",
+      "role": "user",
+      "events": [
+        "1"
+      ]
+    },
+    {
+      "id": "1de8",
+      "name": "Brisbany",
+      "email": "Bris@riwi.io",
+      "password": "123456",
+      "role": "user",
+      "events": []
+    },
+    {
+      "id": "e625",
+      "name": "Pajimora",
+      "email": "pabo@riwi.io",
+      "password": "123456",
+      "role": "user",
+      "events": [
+        "1",
+        "2",
+        "b49d"
+      ]
+    },
+    {
+      "id": "7fd6",
+      "name": "Andres Bolanos",
+      "email": "nono@riwi.io",
+      "password": "123456",
+      "role": "user",
+      "events": [
+        "2",
+        "b49d"
+      ]
+    }
+  ]
+}

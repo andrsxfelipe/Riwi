@@ -1,0 +1,350 @@
+:root {
+    --primary-color: #6A00FE;
+    --secondary-color: #EFE1F2;
+    --title-color: #000000;
+    --secondary-title-color: #B600FE;
+    --text-color: #ACACAC;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--secondary-title-color);
+}
+
+p {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+body {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+}
+
+/* BAR---------------------------------------------------------------------- */
+
+.index-bar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--secondary-color);
+}
+
+#bar-profile {
+    display: flex;
+    margin-top: 15vh;
+    text-align: center;
+}
+
+#bar-navigation {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh;
+}
+
+#bar-navigation nav {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#bar-navigation a {
+    text-decoration: none;
+    color: var(--primary-color);
+    width: 180px;
+    text-align: center;
+    border-radius: 5px;
+    padding-block: 5px;
+}
+
+#bar-navigation a:hover {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+#bar-navigation a.active {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+#bar-navigation button {
+    display: flex;
+    margin-top: 4vh;
+    width: fit-content;
+    align-self: center;
+    background-color: transparent;
+    color: var(--title-color);
+    border: none;
+    align-items: end;
+    gap: 15px;
+    cursor: pointer;
+}
+
+/* LOGIN AND REGISTER ------------------------------------------------------ */
+.sign-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 300px;
+    height: fit-content;
+    margin-block: 20vh;
+    width: fit-content;
+    justify-self: center;
+}
+
+.sign-form input {
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.sign-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sign-form label {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.sign-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.sign-form button {
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+
+}
+
+.invalid_credentials {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* CREATE EVENT------------------------------------------------------------ */
+
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 300px;
+    height: fit-content;
+    margin-block: 20vh;
+    width: fit-content;
+    justify-self: center;
+    color: var(--text-color);
+}
+
+.event-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.event-form input {
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 5px;
+}
+
+.event-form input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.event-form textarea {
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 2px 5px;
+}
+
+.event-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.event-form .event-form-details {
+    display: flex;
+    gap: 10px;
+}
+
+.event-form-buttons {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin-top: 4vh;
+}
+
+.form-save {
+    padding: 10px 0;
+    width: 100px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-cancel {
+    padding: 10px 0;
+    width: 100px;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* EVENTS------------------------------------------------------------------ */
+.events-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.addnewevent {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addnewevent button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    margin-bottom: 20px;
+
+}
+
+.events-list tr td:last-child i {
+    font-size: 15px;
+    color: var(--primary-color);
+    cursor: pointer;
+
+}
+
+.events-list tr td:first-child i {
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    color: var(--gray);
+    padding-inline: 20px;
+}
+
+.events-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.events-content th {
+    border-top: 1px solid var(--text-color);
+    text-align: left;
+    color: var(--text-color);
+    padding-block: 15px;
+    font-size: 12px;
+    max-width: 320px;
+}
+
+.events-content td {
+    font-size: 14px;
+    text-align: left;
+    padding-block: 30px;
+    max-width: 320px;
+}
+
+.events-content tr:hover {
+    background-color: var(--secondary-color);
+}
+
+.events-list tr>td:first-child {
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+
+.events-list tr>td:last-child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.events-content .events-enroll{
+    width: 100%;
+    border: none;
+    padding-block: 5px;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+}
+
+.events-content .events-soldout{
+    width: 100%;
+    border: none;
+    padding-block: 5px;
+    border-radius: 3px;
+    background-color: var(--text-color);
+    color: white;
+}
+
+/* HOME---------------------------------------------------------*/
+.home {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
