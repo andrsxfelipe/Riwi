@@ -207,6 +207,11 @@ INNER JOIN cursos c ON m.curso_id = c.id;
 ```
 Solo muestra los estudiantes que estén matriculados en cursos.
 Si no hay coincidencia en ambas tablas, no se muestra nada.
+```sql
+SELECT clientes.nombre, pedidos.producto
+FROM clientes
+JOIN pedidos ON clientes.id_cliente = pedidos.id_cliente;
+```
 
 ### LEFT JOIN – Todo lo de la izquierda + coincidencias
 
@@ -255,10 +260,10 @@ CROSS JOIN cursos c;
 
 Devuelve todas las combinaciones posibles entre estudiantes y cursos. Se usa con cuidado (puede crear millones de combinaciones).
 
-### Group By
+## Group By
 
 **Sintaxis**
-```
+```SQL
 SELECT columna_agrupada, FUNCION_AGREGADA(columna)
 FROM tabla
 GROUP BY columna_agrupada;
