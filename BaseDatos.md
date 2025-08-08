@@ -435,9 +435,11 @@ JOIN cursos c ON cal.curso_id = c.id;
 
 # MongoDB
 
-## 1. Instalación de MongoDB local
+## 1. Incio de Mongo
 
-### Windows
+### Instalación de MongoDB local
+
+#### Windows
 1. Ve a la página oficial: https://www.mongodb.com/try/download/community
 2. Descarga el instalador `.msi` para Windows.
 3. Ejecuta el instalador y selecciona "Complete Setup".
@@ -449,7 +451,7 @@ Para verificar que está instalado, abre PowerShell y ejecuta:
 mongod --version
 ```
 
-### Linux (Ubuntu/Debian)
+#### Linux (Ubuntu/Debian)
 ```bash
 sudo apt update
 sudo apt install -y gnupg
@@ -461,14 +463,14 @@ sudo systemctl start mongod
 sudo systemctl enable mongod
 ```
 
-### macOS (usando Homebrew)
+#### macOS (usando Homebrew)
 ```bash
 brew tap mongodb/brew
 brew install mongodb-community@6.0
 brew services start mongodb-community@6.0
 ```
 
-## 2. Usar MongoDB Atlas (nube)
+### Usar MongoDB Atlas (nube)
 1. Ve a https://www.mongodb.com/cloud/atlas y crea una cuenta.
 2. Crea un nuevo "Cluster" gratuito (M0).
 3. Añade tu IP a la lista de IPs permitidas (0.0.0.0 para permitir todas).
@@ -480,14 +482,14 @@ Ejemplo de cadena de conexión:
 mongodb+srv://usuario:contraseña@cluster0.mongodb.net/test
 ```
 
-## 3. Conectarse desde la terminal
+### Conectarse desde la terminal
 
-### Conexión a MongoDB local
+#### Conexión a MongoDB local
 ```bash
 mongosh
 ```
 
-### Conexión a MongoDB Atlas desde terminal
+#### Conexión a MongoDB Atlas desde terminal
 ```bash
 mongosh "mongodb+srv://usuario:contraseña@cluster0.mongodb.net/test"
 ```
