@@ -1,0 +1,365 @@
+use StreamingHub // Usar la BD
+
+// Insertar usuarios
+db.usuarios.insertMany([
+  {
+    nombre: "Andrés",
+    correo_electronico: "andres@example.com",
+    pais: "Colombia",
+    generos_preferidos: ["Acción", "Comedia", "Drama"]
+  },
+  {
+    nombre: "María",
+    correo_electronico: "maria@example.com",
+    pais: "México",
+    generos_preferidos: ["Romance", "Comedia", "Documental"]
+  },
+  {
+    nombre: "Carlos",
+    correo_electronico: "carlos@example.com",
+    pais: "España",
+    generos_preferidos: ["Ciencia ficción", "Aventura", "Thriller"]
+  }
+])
+
+// Insertar peliculas y series
+db.titulos.insertMany([
+  {
+    nombre: "Inception",
+    tipo: "pelicula",
+    duracion: 148,
+    anio_lanzamiento: 2010,
+    generos: ["Ciencia ficción", "Acción", "Thriller"],
+    reparto: ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"]
+  },
+  {
+    nombre: "The Dark Knight",
+    tipo: "pelicula",
+    duracion: 152,
+    anio_lanzamiento: 2008,
+    generos: ["Acción", "Crimen", "Drama"],
+    reparto: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"]
+  },
+  {
+    nombre: "Stranger Things",
+    tipo: "serie",
+    temporadas: 4,
+    anio_lanzamiento: 2016,
+    generos: ["Drama", "Ciencia ficción", "Terror"],
+    reparto: ["Millie Bobby Brown", "Finn Wolfhard", "Winona Ryder"]
+  },
+  {
+    nombre: "Breaking Bad",
+    tipo: "serie",
+    temporadas: 5,
+    anio_lanzamiento: 2008,
+    generos: ["Crimen", "Drama", "Thriller"],
+    reparto: ["Bryan Cranston", "Aaron Paul", "Anna Gunn"]
+  }
+])
+
+// Insertar capítulos referenciando la serie por el id
+const stranger = db.titulos.findOne({ nombre: "Stranger Things", tipo: "serie" })
+
+db.capitulos_series.insertMany([
+  {
+    serie_id: stranger._id,
+    temporada: 1,
+    nombre_capitulo: "Chapter One: The Vanishing of Will Byers",
+    duracion: 47
+  },
+  {
+    serie_id: stranger._id,
+    temporada: 1,
+    nombre_capitulo: "Chapter Two: The Weirdo on Maple Street",
+    duracion: 55
+  },
+  {
+    serie_id: stranger._id,
+    temporada: 2,
+    nombre_capitulo: "Chapter One: MADMAX",
+    duracion: 48
+  }
+])
+
+const breakingBad = db.titulos.findOne({ nombre: "Breaking Bad", tipo: "serie" })
+
+db.capitulos_series.insertMany([
+  {
+    serie_id: breakingBad._id,
+    temporada: 1,
+    nombre_capitulo: "Pilot",
+    duracion: 58
+  },
+  {
+    serie_id: breakingBad._id,
+    temporada: 1,
+    nombre_capitulo: "Cat's in the Bag...",
+    duracion: 48
+  },
+  {
+    serie_id: breakingBad._id,
+    temporada: 1,
+    nombre_capitulo: "...And the Bag's in the River",
+    duracion: 48
+  },
+  {
+    serie_id: breakingBad._id,
+    temporada: 2,
+    nombre_capitulo: "Seven Thirty-Seven",
+    duracion: 47
+  }
+])
+
+// Insertar historial
+
+const andres = db.usuarios.findOne({ nombre: "Andrés" })
+const inception = db.titulos.findOne({ nombre: "Inception" })
+const darkKnight = db.titulos.findOne({ nombre: "The Dark Knight" })
+const strangerThings = db.titulos.findOne({ nombre: "Stranger Things" })
+
+db.historial_vistas.insertMany([
+  {
+    usuario_id: andres._id,
+    titulo_id: inception._id,
+    fecha_vista: new Date("2023-08-01T20:00:00Z"),
+    duracion_vista: 148
+  },
+  {
+    usuario_id: andres._id,
+    titulo_id: darkKnight._id,
+    fecha_vista: new Date("2023-08-03T21:00:00Z"),
+    duracion_vista: 152
+  },
+  {
+    usuario_id: andres._id,
+    titulo_id: strangerThings._id,
+    fecha_vista: new Date("2023-08-05T19:30:00Z"),
+    duracion_vista: 50  // por ejemplo, un capítulo
+  }
+])
+
+const maria = db.usuarios.findOne({ nombre: "María" })
+const breakingBad = db.titulos.findOne({ nombre: "Breaking Bad" })
+const strangerThings = db.titulos.findOne({ nombre: "Stranger Things" })
+
+db.historial_vistas.insertMany([
+  {
+    usuario_id: maria._id,
+    titulo_id: breakingBad._id,
+    fecha_vista: new Date("2023-07-28T18:00:00Z"),
+    duracion_vista: 55
+  },
+  {
+    usuario_id: maria._id,
+    titulo_id: strangerThings._id,
+    fecha_vista: new Date("2023-07-30T20:30:00Z"),
+    duracion_vista: 48
+  }
+])
+
+// Valoraciones
+
+const andres = db.usuarios.findOne({ nombre: "Andrés" })
+const maria = db.usuarios.findOne({ nombre: "María" })
+const inception = db.titulos.findOne({ nombre: "Inception" })
+const darkKnight = db.titulos.findOne({ nombre: "The Dark Knight" })
+const breakingBad = db.titulos.findOne({ nombre: "Breaking Bad" })
+const strangerThings = db.titulos.findOne({ nombre: "Stranger Things" })
+
+db.valoraciones.insertMany([
+  {
+    usuario_id: andres._id,
+    titulo_id: inception._id,
+    calificacion: 5,
+    comentario: "Una película increíble, muy recomendada.",
+    fecha_valoracion: new Date("2023-08-02")
+  },
+  {
+    usuario_id: andres._id,
+    titulo_id: darkKnight._id,
+    calificacion: 4,
+    comentario: "Muy buena actuación y trama emocionante.",
+    fecha_valoracion: new Date("2023-08-04")
+  },
+  {
+    usuario_id: maria._id,
+    titulo_id: breakingBad._id,
+    calificacion: 5,
+    comentario: "Una serie que te atrapa desde el primer capítulo.",
+    fecha_valoracion: new Date("2023-07-29")
+  },
+  {
+    usuario_id: maria._id,
+    titulo_id: strangerThings._id,
+    calificacion: 4,
+    comentario: "Excelente mezcla de nostalgia y misterio.",
+    fecha_valoracion: new Date("2023-07-31")
+  }
+])
+
+// Listas
+
+const andres = db.usuarios.findOne({ nombre: "Andrés" })
+const inception = db.titulos.findOne({ nombre: "Inception" })
+const darkKnight = db.titulos.findOne({ nombre: "The Dark Knight" })
+
+db.listas_reproduccion.insertOne({
+  usuario_id: andres._id,
+  nombre: "Favoritas de Andrés",
+  fecha_creacion: new Date(),
+  titulos: [inception._id, darkKnight._id]
+})
+
+// Peliculas con duración de más de 2 horas
+db.titulos.find({
+  tipo: "pelicula",
+  duracion: { $gt: 120 }
+})
+
+// Usuarios que han visto más de 5 contenidos
+
+db.historial_vistas.aggregate([
+  {
+    $group: {
+      _id: "$usuario_id",
+      total_vistas: { $sum: 1 }
+    }
+  },
+  {
+    $match: { total_vistas: { $gt: 5 } }
+  }
+])
+
+//Consultas básicas
+// Películas o series cuyo nombre contenga la palabra "Dark"
+db.titulos.find({
+  nombre: { $regex: "Dark", $options: "i" }
+})
+
+//Usuarios cuyo país sea Colombia o México
+db.usuarios.find({
+  pais: { $in: ["Colombia", "México"] }
+})
+
+// Películas que sean de género "Acción" y hayan salido después de 2008
+db.titulos.find({
+  $and: [
+    { tipo: "pelicula" },
+    { generos: "Acción" },
+    { anio_lanzamiento: { $gt: 2008 } }
+  ]
+})
+
+// Modificar la calificación de Andrés sobre Inception
+const andres = db.usuarios.findOne({ nombre: "Andrés" })
+const inception = db.titulos.findOne({ nombre: "Inception" })
+
+db.valoraciones.updateOne(
+  { usuario_id: andres._id, titulo_id: inception._id },
+  { $set: { calificacion: 4 } }
+)
+
+// Modificar la calificación para todos los usuarios que valoraron "Breaking Bad" a 5 estrellas
+const breakingBad = db.titulos.findOne({ nombre: "Breaking Bad" })
+
+db.valoraciones.updateMany(
+  { titulo_id: breakingBad._id },
+  { $set: { calificacion: 5 } }
+)
+
+//Eliminar a Carlos que no ha interactuado:
+db.usuarios.deleteOne({ nombre: "Carlos" });
+
+// Indices
+db.titulos.createIndex({ nombre: 1 }) //Busqueda por títulos ascendente
+db.titulos.createIndex({ generos: 1 }) // Busqueda por género ascendente
+db.titulos.getIndexes() // Consultar indices
+db.titulos.find({ generos: "Drama" }) // Consulta mediante el índice para títulos de genero drama
+
+//Agregaciones
+// 1. Promedio de calificaciones por titulo
+db.valoraciones.aggregate([
+  {
+    $lookup: {
+      from: "titulos",
+      localField: "titulo_id",
+      foreignField: "_id",
+      as: "titulo"
+    }
+  },
+  { $unwind: "$titulo" },
+  { $match: { "titulo.tipo": "pelicula" } },
+  {
+    $group: {
+      _id: "$titulo.nombre",
+      promedio_calificacion: { $avg: "$calificacion" },
+      total_valoraciones: { $sum: 1 }
+    }
+  },
+  { $sort: { promedio_calificacion: -1 } },
+  {
+    $project: {
+      _id: 0,
+      pelicula: "$_id",
+      promedio_calificacion: 1,
+      total_valoraciones: 1
+    }
+  }
+])
+
+// 2. Número total de contenidos vistos por usuario
+db.historial_vistas.aggregate([
+  {
+    $group: {
+      _id: "$usuario_id",
+      total_vistos: { $sum: 1 }
+    }
+  },
+  {
+    $lookup: {
+      from: "usuarios",
+      localField: "_id",
+      foreignField: "_id",
+      as: "usuario"
+    }
+  },
+  { $unwind: "$usuario" },
+  {
+    $project: {
+      _id: 0,
+      usuario: "$usuario.nombre",
+      total_vistos: 1
+    }
+  },
+  { $sort: { total_vistos: -1 } }
+])
+
+// 3. Generos más populares
+
+db.valoraciones.aggregate([
+  {
+    $lookup: {
+      from: "titulos",
+      localField: "titulo_id",
+      foreignField: "_id",
+      as: "titulo"
+    }
+  },
+  { $unwind: "$titulo" },
+  { $unwind: "$titulo.generos" },
+  {
+    $group: {
+      _id: "$titulo.generos",
+      total_valoraciones: { $sum: 1 }
+    }
+  },
+  { $sort: { total_valoraciones: -1 } },
+  {
+    $project: {
+      _id: 0,
+      genero: "$_id",
+      total_valoraciones: 1
+    }
+  }
+])
